@@ -1,3 +1,15 @@
+# Private directories
+Burocracia/
+Documentacion/*
+TrabajoPrevio/
+
+# Keep some
+!Documentacion/README.MD
+
+# Common extensions for binary files
+*.pdf
+*.xlsx
+
 # History files
 .Rhistory
 .Rapp.history
