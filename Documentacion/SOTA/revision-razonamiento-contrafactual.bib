@@ -1,0 +1,148 @@
+% Capítulo de libro que explica counterfactual explanations: https://christophm.github.io/interpretable-ml-book/counterfactual.html. Incluye referencias a algunas técnicas interesantes para obtener explicaciones contrafácticas de forma agnóstica al modelo de machine learning.
+% -> Uso de metaheurísticas multiobjetivo (minimizar cambios en variables, nºvariables cambiadas,etc):
+@inproceedings{dandl2020multi,
+  title        = {Multi-objective counterfactual explanations},
+  author       = {Dandl, Susanne and Molnar, Christoph and Binder, Martin and Bischl, Bernd},
+  booktitle    = {International Conference on Parallel Problem Solving from Nature},
+  pages        = {448--469},
+  year         = {2020},
+  organization = {Springer}
+}
+% -> Basado en resolver problemas de satisfacibilidad
+@inproceedings{karimi2020model,
+  title        = {Model-agnostic counterfactual explanations for consequential decisions},
+  author       = {Karimi, Amir-Hossein and Barthe, Gilles and Balle, Borja and Valera, Isabel},
+  booktitle    = {International Conference on Artificial Intelligence and Statistics},
+  pages        = {895--905},
+  year         = {2020},
+  organization = {PMLR}
+}
+% -> Basado en determinantal point processes
+@inproceedings{mothilal2020explaining,
+  title     = {Explaining machine learning classifiers through diverse counterfactual explanations},
+  author    = {Mothilal, Ramaravind K and Sharma, Amit and Tan, Chenhao},
+  booktitle = {Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency},
+  pages     = {607--617},
+  year      = {2020}
+}
+% Estas técnicas podrían ser aplicados sobre distintos **clasificadores** interpretables (uno por cada ola) para un estudio de variables cuyo cambio invierte el resultado final de mortalidad del paciente a uno de supervivencia. Sobre esta idea puede tomarse un enfoque más pragmático, e.g. estudiando variables en control del médico y/o paciente (estado de vacunación, medicamentos administrados...), o centrándose en obtener un algoritmo de búsqueda de explicaciones contrafácticas maximizando la usabilidad (pocos hiperparámetros, ponderación de variables a cambiar con métodos basados en preguntas en vez de asignación manual de pesos, etc.)
+% En el libro se mencionan otras técnicas de interpretabilidad agnósticas al modelo que podría ser interesante explorar. Por ejemplo uso de Partial dependence plot para el estudio del impacto de las variables que se sospecha que cambian significativamente el modelo de razonamiento en las nuevas olas, como el estado de vacunación. Puede profundizarse más la idea y estudiar como empiezan o dejan de ser relevantes para un clasificador algunas variables en las distintas olas.
+
+% ####################
+
+% Puede también centrarse el foco en las técnicas de obtención y aplicación de explicaciones contrafácticas que sean especiales de las redes Bayesianas:
+
+% Este artículo sienta unas bases de notación para el problema. Además nos indica que no es posible realizar consultas intercausales a una red Bayesiana si no utilizamos una estructura simétrica mundo hipotético - mundo real, con un puente de disturbance variables. No tengo claro ahora mismo como se conseguirían estas variables.
+@article{balke2011probabilistic,
+  title  = {Probabilistic evaluation of counterfactual queries},
+  author = {Balke, Alexander and Pearl, Judea},
+  year   = {2011}
+}
+
+% Bien es cierto que este artículo se refiere a clasificadores Bayesianos, sin embargo, vale la pena acordarse de este trabajo si se acaban utilizando en el enfoque del TFM adicionalmente/en vez de redes Bayesianas en general.
+@inproceedings{albini2020relation,
+  title     = {Relation-Based Counterfactual Explanations for Bayesian Network Classifiers.},
+  author    = {Albini, Emanuele and Rago, Antonio and Baroni, Pietro and Toni, Francesca},
+  booktitle = {IJCAI},
+  pages     = {451--457},
+  year      = {2020}
+}
+
+% Creo que la idea de este artículo podría trasladarse a uno de los objetivos del TFM: análisis forense: ¿Qué podría haber hecho para evitar la muerte?
+@article{constantinou2016value,
+  title     = {Value of information analysis for interventional and counterfactual Bayesian networks in forensic medical sciences},
+  author    = {Constantinou, Anthony Costa and Yet, Barbaros and Fenton, Norman and Neil, Martin and Marsh, William},
+  journal   = {Artificial Intelligence in Medicine},
+  volume    = {66},
+  pages     = {41--52},
+  year      = {2016},
+  publisher = {Elsevier}
+}
+
+% Restricciones de factibilidad a los ejemplos contrafactuales, aplicado además sobre Redes Bayesianas
+@article{mahajan2019preserving,
+  title   = {Preserving causal constraints in counterfactual explanations for machine learning classifiers},
+  author  = {Mahajan, Divyat and Tan, Chenhao and Sharma, Amit},
+  journal = {arXiv preprint arXiv:1912.03277},
+  year    = {2019}
+}
+
+% Se utiliza este tipo de razonamiento aplicado sobre redes Bayesianas. Cabe notar que el artículo advierte de la necesidad de que la red modele relaciones causales; esto podría llegar a ser un problema, como creo que se comentó en la última reunión.
+@article{richens2019counterfactual,
+  title   = {Counterfactual diagnosis},
+  author  = {Richens, Jonathan G and Lee, Ciar{\'a}n M and Johri, Saurabh},
+  journal = {arXiv preprint arXiv:1910.06772},
+  year    = {2019}
+}
+
+% Uso de términos médicos en el desarrollo de Redes Bayesianas, no es inmediatamente relevante en la decisión de la dirección del TFM, pero podría ser útil según el enfoque que se decida.
+@article{kyrimi2020medical,
+  title     = {Medical idioms for clinical Bayesian network development},
+  author    = {Kyrimi, Evangelia and Neves, Mariana Raniere and McLachlan, Scott and Neil, Martin and Marsh, William and Fenton, Norman},
+  journal   = {Journal of Biomedical Informatics},
+  volume    = {108},
+  pages     = {103495},
+  year      = {2020},
+  publisher = {Elsevier}
+}
+
+% Teoría de unificación de contrafactuales y modelos gráficos causales. Parece muy potente, pero plantea muchos desafíos en términos de complejidad e implementación. 
+@article{richardson2013single,
+  title     = {Single world intervention graphs (SWIGs): A unification of the counterfactual and graphical approaches to causality},
+  author    = {Richardson, Thomas S and Robins, James M},
+  journal   = {Center for the Statistics and the Social Sciences, University of Washington Series. Working Paper},
+  volume    = {128},
+  number    = {30},
+  pages     = {2013},
+  year      = {2013},
+  publisher = {Citeseer}
+}
+
+% Revisa dos aproximaciones a este razonamiento en Redes Bayesianas, a priori no lo he entendido muy bien.
+@article{rips2010two,
+  title     = {Two causal theories of counterfactual conditionals},
+  author    = {Rips, Lance J},
+  journal   = {Cognitive science},
+  volume    = {34},
+  number    = {2},
+  pages     = {175--221},
+  year      = {2010},
+  publisher = {Wiley Online Library}
+}
+
+% Tampoco he entendido demasiado bien este trabajo, parece una propuesta de un tipo de grafo para explicar un proceso de inferencia. Queda pendiente una lectura más a fondo
+@article{jaimini2022causalkg,
+  title   = {CausalKG: Causal Knowledge Graph Explainability using interventional and counterfactual reasoning},
+  author  = {Jaimini, Utkarshani and Sheth, Amit},
+  journal = {arXiv preprint arXiv:2201.03647},
+  year    = {2022}
+}
+
+% Uso de contrafactuales con árboles de decisión. Esta incompleto?
+@inproceedings{sokol2019desiderata,
+  title     = {Desiderata for interpretability: explaining decision tree predictions with counterfactuals},
+  author    = {Sokol, Kacper and Flach, Peter},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume    = {33},
+  number    = {01},
+  pages     = {10035--10036},
+  year      = {2019}
+}
+
+% Uso de contrafactuales en Redes Bayesianas, tiene mejor pinta que otros enfoques más teóricos. Eso sí, parece más bien enfocado a explicar que a encontrar alternativas factibles
+@inproceedings{koopman2021persuasive,
+  title        = {Persuasive contrastive explanations for Bayesian networks},
+  author       = {Koopman, Tara and Renooij, Silja},
+  booktitle    = {European Conference on Symbolic and Quantitative Approaches with Uncertainty},
+  pages        = {229--242},
+  year         = {2021},
+  organization = {Springer}
+}
+
+% Framework de explicación con contrafactuales. Documento muy pesado (es una tesis doctoral!), pero incluye usos con Redes Bayesianas. Quizás más apropiado para el SOTA que para otra cosa
+@phdthesis{wijaya2021multilayer,
+  title  = {Multilayer Counterfactual Explanations for Machine Learning Classifiers},
+  author = {Wijaya, Maleakhi Agung},
+  year   = {2021},
+  school = {Imperial College London}
+}

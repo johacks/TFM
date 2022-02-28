@@ -3,8 +3,8 @@ Burocracia/
 Documentacion/*
 TrabajoPrevio/
 
-# Keep some
-!Documentacion/README.MD
+# Never interesting
+*desktop.ini*
 
 # Common extensions for binary files
 *.pdf
